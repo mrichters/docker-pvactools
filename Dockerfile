@@ -21,14 +21,16 @@ RUN apt-get update && apt-get install -y \
     gcc \
     build-essential \
     zlib1g-dev \
-    gawk
+    gawk \
+    vim
 
 #pVACtools 3.1.1
 RUN mkdir /opt/mhcflurry_data
 ENV MHCFLURRY_DATA_DIR=/opt/mhcflurry_data
 RUN pip install protobuf==3.20.0
 RUN pip install tensorflow==2.2.2
-RUN pip install pvactools==3.1.1
+COPY pvactools-3.1.1-py3-none-any.whl .
+RUN pip install pvactools-3.1.1-py3-none-any.whl
 RUN mhcflurry-downloads fetch
 
 CMD ["/bin/bash"]
