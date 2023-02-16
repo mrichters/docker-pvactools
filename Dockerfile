@@ -21,8 +21,7 @@ RUN apt-get update && apt-get install -y \
     gcc \
     build-essential \
     zlib1g-dev \
-    gawk \
-    vim
+    gawk
 
 #pVACtools 3.1.1
 RUN mkdir /opt/mhcflurry_data
